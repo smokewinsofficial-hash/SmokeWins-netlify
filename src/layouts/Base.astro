@@ -1,20 +1,21 @@
 ---
 const {
-  title = "SmokeWins — Your Guide to Canadian Online Casinos",
-  description = "Independent reviews, payment guides and responsible gambling resources — built for Canadians.",
+  title = "SmokeWins — Riippumaton opas (Canada)",
+  description = "Riippumaton opas: maksutavat, kotiutukset ja vastuullinen pelaaminen. Ei kasino-listauksia vielä.",
   canonical,
+  noindex = false, // 🔸 Aseta true jos haluat estää indeksoinnin toistaiseksi
 } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en-CA">
+<html lang="fi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
   <title>{title}</title>
   {canonical && <link rel="canonical" href={canonical} />}
-
-  <!-- Tyylit: varmistathan että /public/styles.css on olemassa -->
+  {noindex && <meta name="robots" content="noindex,nofollow" />} 
+  <link rel="icon" href="/favicon.svg" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -22,10 +23,11 @@ const {
     <div class="container row">
       <strong>SmokeWins</strong>
       <nav class="primary">
-        <a href="/#top">Top Casinos</a>
-        <a href="/reviews">Reviews</a>
-        <a href="/guides">Guides</a>
-        <a href="/responsible-gambling">19+ RG</a>
+        <a href="/about">Meistä</a>
+        <a href="/methodology">Arviointikriteerit</a>
+        <a href="/guides">Oppaat</a>
+        <a href="/responsible-gambling">Vastuullinen pelaaminen</a>
+        <a href="/contact">Yhteys</a>
       </nav>
     </div>
   </header>
@@ -35,23 +37,24 @@ const {
   <footer>
     <div class="container grid">
       <section>
-        <h5>About SmokeWins</h5>
-        <p>Independent reviews for Canadians.</p>
-        <p class="disclaimer">19+ Play Responsibly. This website may contain affiliate links. Terms apply. No bonus inducements for Ontario.</p>
+        <h5>Tietoa</h5>
+        <p>SmokeWins on riippumaton opas. Emme vielä suosittele yksittäisiä kasinoita.</p>
+        <p class="disclaimer">19+ Pelaa vastuullisesti. Emme julkaise bonus-inducementteja Ontariossa.</p>
       </section>
       <section>
-        <h5>Quick Links</h5>
-        <p><a href="/#top">Top Casinos</a></p>
-        <p><a href="/reviews">All Reviews</a></p>
-        <p><a href="/guides">Guides</a></p>
+        <h5>Nopeat linkit</h5>
+        <p><a href="/about">Meistä</a></p>
+        <p><a href="/methodology">Arviointikriteerit</a></p>
+        <p><a href="/guides">Oppaat</a></p>
       </section>
       <section>
-        <h5>Legal</h5>
-        <p><a href="/privacy">Privacy Policy</a></p>
-        <p><a href="/terms">Terms & Conditions</a></p>
-        <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
+        <h5>Laillisuus</h5>
+        <p><a href="/privacy">Tietosuoja</a></p>
+        <p><a href="/terms">Käyttöehdot</a></p>
+        <p><a href="/affiliate-disclosure">Kumppanuusilmoitus</a></p>
       </section>
     </div>
   </footer>
 </body>
 </html>
+
