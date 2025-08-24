@@ -1,13 +1,25 @@
 ---
-/* no imports */
+import Base from "../layouts/Base.astro";
+import CasinoTable from "../components/CasinoTable.astro";
+
+const pageTitle = "SmokeWins — Your Guide to Canadian Online Casinos";
+const pageDesc  = "Independent reviews, payment guides, and responsible gambling resources — built for Canadians.";
 ---
-<!doctype html>
-<html lang="en-CA">
-  <head>
-    <meta charset="utf-8" />
-    <title>Build probe</title>
-  </head>
-  <body>
-    <h1>Astro build probe ✅</h1>
-  </body>
-</html>
+<Base title={pageTitle} description={pageDesc}>
+  <header class="hero">
+    <div class="halo"></div>
+    <div class="container">
+      <span class="badge">Canada-focused • Independent Reviews</span>
+      <h1>Your Guide to Online Casinos in Canada</h1>
+      <p class="lead">Clear reviews, payment walkthroughs and responsible gambling resources — built for Canadians. Transparent scoring. No bonus inducements for Ontario.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a href="#top" class="btn btn-primary">See Top-Rated Casinos</a>
+        <a href="/guides" class="btn btn-outline">Read Guides</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" class="container">
+    <CasinoTable />
+  </section>
+</Base>
