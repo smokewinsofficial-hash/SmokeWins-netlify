@@ -1,47 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
-import CasinoTable from "../components/CasinoTable.astro";
-
-const pageTitle = "SmokeWins — Your Guide to Canadian Online Casinos";
-const pageDesc  = "Independent reviews, payment guides, and responsible gambling resources — built for Canadians.";
 ---
-<Base title={pageTitle} description={pageDesc}>
-  <header class="hero">
-    <div class="halo"></div>
-    <div class="container">
-      <span class="badge">Canada-focused • Independent Reviews</span>
-      <h1>Your Guide to Online Casinos in Canada</h1>
-      <p class="lead">Clear reviews, payment walkthroughs and responsible gambling resources — built for Canadians. Transparent scoring. No bonus inducements for Ontario.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <a href="#top" class="btn btn-primary">See Top-Rated Casinos</a>
-        <a href="/guides" class="btn btn-outline">Read Guides</a>
-      </div>
-      <div style="margin-top:12px" class="grid">
-        <div class="badge">19+ Play Responsibly</div>
-        <div class="badge">Fast-Payout Picks</div>
-        <div class="badge">Canada-First Payments</div>
-      </div>
-    </div>
-  </header>
-
-  <section id="top" class="container">
-    <CasinoTable />
-  </section>
-
+<Base title="SmokeWins – build test">
   <section class="container">
-    <div class="grid cards">
-      <article class="card">
-        <h3>Independent Reviews</h3>
-        <p>We score payments, speed, support, fairness and mobile experience — not just promos.</p>
-      </article>
-      <article class="card">
-        <h3>Canada-First Payments</h3>
-        <p>Guides to Interac, iDebit, e-wallets and crypto — with step-by-step payout checks.</p>
-      </article>
-      <article class="card">
-        <h3>Responsible Gambling</h3>
-        <p>Limits, cool-offs and self-exclusion information, plus provincial resources.</p>
-      </article>
-    </div>
+    <h1>SmokeWins build test ✅</h1>
+    <p>If you see this page live, the build works. Next we’ll re-enable the table.</p>
   </section>
 </Base>
