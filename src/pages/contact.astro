@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Contact" description="Get in touch with SmokeWins." canonical="/contact">
+  <section class="container" style="padding:28px 0">
+    <h1>Contact</h1>
+    <form name="contact" method="POST" data-netlify="true" class="card" style="max-width:560px;padding:18px">
+      <input type="hidden" name="form-name" value="contact" />
+      <label>Email</label>
+      <input type="email" name="email" required placeholder="you@example.com" style="width:100%;padding:10px;border-radius:12px;margin:8px 0" />
+      <label>Message</label>
+      <textarea name="message" required rows="6" placeholder="How can we help?" style="width:100%;padding:10px;border-radius:12px;margin:8px 0"></textarea>
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+  </section>
+</Base>
