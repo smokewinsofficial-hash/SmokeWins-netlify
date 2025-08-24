@@ -1,0 +1,62 @@
+---
+/**
+ * CasinoTable.astro
+ * Yksinkertainen “Top casinos” -taulukko. Voit syöttää omat rivit
+ * propseina (rows), tai käytetään alla olevia oletusarvoja.
+ */
+export interface Row {
+  brand: string;
+  offer: string;
+  speed: string;
+  pay: string;
+  score: string;
+  go: string; // /go/slug — ohjaa public/_redirects -tiedoston kautta
+}
+
+const rows: Row[] = Astro.props.rows ?? [
+  { brand: "Brand A", offer: "Low fees • High RTP",   speed: "0–24h (e-wallets)", pay: "Interac, Visa, Crypto",  score: "9.2/10", go: "/go/branda" },
+  { brand: "Brand B", offer: "Great Live Casino",     speed: "0–48h",            pay: "Interac, iDebit, Visa",  score: "8.8/10", go: "/go/brandb" },
+  { brand: "Brand C", offer: "High Limits",           speed: "1–24h",            pay: "Interac, MuchBetter",    score: "8.6/10", go: "/go/brandc" },
+];
+---
+
+<div class="table">
+  <div class="head">
+    <h2>Top Canadian Casinos (Editor’s Picks)</h2>
+    <a class="btn btn-outline" href="/reviews">View All Reviews</a>
+  </div>
+
+  <table class="compare" aria-describedby="table-caption">
+    <caption id="table-caption" style="position:absolute;left:-9999px">
+      Top Canadian online casinos — key facts.
+    </caption>
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>General Offer</th>
+        <th>Payout Speed</th>
+        <th>Payments</th>
+        <th>Our Score</th>
+        <th class="visit">Visit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          <td data-label="Brand"><strong>{r.brand}</strong></td>
+          <td data-label="General Offer"><span class="pill">{r.offer}</span></td>
+          <td data-label="Payout Speed">{r.speed}</td>
+          <td data-label="Payments">{r.pay}</td>
+          <td data-label="Our Score" class="score">{r.score}</td>
+          <td data-label="Visit" class="visit">
+            <a class="btn btn-primary" href={r.go} rel="nofollow noopener">Visit</a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <p style="color:var(--muted);font-size:12px;margin:10px 4px 0">
+    Terms apply. No bonus inducements for Ontario. 19+ Play Responsibly.
+  </p>
+</div>
