@@ -1,0 +1,57 @@
+---
+const {
+  title = "SmokeWins — Your Guide to Canadian Online Casinos",
+  description = "Independent reviews, payment guides and responsible gambling resources — built for Canadians.",
+  canonical,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  {canonical && <link rel="canonical" href={canonical} />}
+
+  <!-- Tyylit: varmistathan että /public/styles.css on olemassa -->
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="container row">
+      <strong>SmokeWins</strong>
+      <nav class="primary">
+        <a href="/#top">Top Casinos</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/guides">Guides</a>
+        <a href="/responsible-gambling">19+ RG</a>
+      </nav>
+    </div>
+  </header>
+
+  <main><slot /></main>
+
+  <footer>
+    <div class="container grid">
+      <section>
+        <h5>About SmokeWins</h5>
+        <p>Independent reviews for Canadians.</p>
+        <p class="disclaimer">19+ Play Responsibly. This website may contain affiliate links. Terms apply. No bonus inducements for Ontario.</p>
+      </section>
+      <section>
+        <h5>Quick Links</h5>
+        <p><a href="/#top">Top Casinos</a></p>
+        <p><a href="/reviews">All Reviews</a></p>
+        <p><a href="/guides">Guides</a></p>
+      </section>
+      <section>
+        <h5>Legal</h5>
+        <p><a href="/privacy">Privacy Policy</a></p>
+        <p><a href="/terms">Terms & Conditions</a></p>
+        <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>
