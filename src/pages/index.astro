@@ -1,50 +1,13 @@
 ---
-import Base from "../layouts/Base.astro";
-const pageTitle = "SmokeWins — Riippumaton opas (Canada)";
-const pageDesc  = "Oppaat maksutavoista, kotiutuksista ja vastuullisesta pelaamisesta. Emme vielä suosittele kasinoita.";
+import Base from "../../layouts/Base.astro";
 ---
-<Base title={pageTitle} description={pageDesc} noindex={false}>
-  <header class="hero">
-    <div class="halo"></div>
-    <div class="container">
-      <span class="badge">Riippumaton • Kanada</span>
-      <h1>Tervetuloa SmokeWinsiin</h1>
-      <p class="lead">Rakennamme parhaillaan selkeitä oppaita: maksutavat, kotiutukset, turvallisuus & vastuullinen pelaaminen. Kasinosuositukset julkaistaan myöhemmin.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <a href="/about" class="btn btn-primary">Mikä on SmokeWins?</a>
-        <a href="/guides" class="btn btn-outline">Lue oppaita</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="container">
-    <div class="cards grid">
-      <div class="card">
-        <h3>Ei listauksia vielä</h3>
-        <p>Emme toistaiseksi suosittele yksittäisiä kasinoita. Julkaisemme metodologian ja vastuulliset käytännöt ensin.</p>
-      </div>
-      <div class="card">
-        <h3>Arviointikriteerit</h3>
-        <p>Miten arvioimme myöhemmin? Lisenssit, maksut, kotiutusnopeus, vastuullisuus, RTP & reilous.</p>
-        <p><a href="/methodology">Lue lisää</a></p>
-      </div>
-      <div class="card">
-        <h3>Vastuullinen pelaaminen</h3>
-        <p>Linkit apuun ja käytännön vinkit. 19+ Pelaa vastuullisesti.</p>
-        <p><a href="/responsible-gambling">Resurssit</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Uutiskirje/ilmoitus – Netlify Forms -->
+<Base title="Guides" description="Payments, fast withdrawals and verification basics." canonical="/guides">
   <section class="container" style="padding:28px 0">
-    <h2>Haluatko ilmoituksen kun julkaisemme arviot?</h2>
-    <form name="updates" method="POST" data-netlify="true" class="card" style="max-width:560px;padding:18px">
-      <input type="hidden" name="form-name" value="updates" />
-      <label>Sähköposti</label>
-      <input name="email" type="email" required placeholder="sinä@esimerkki.com" style="width:100%;padding:10px;border-radius:12px;margin:8px 0" />
-      <button class="btn btn-primary" type="submit">Ilmoita minulle</button>
-      <p class="disclaimer" style="margin-top:8px;font-size:12px;color:#b7c4e9">Emme lähetä roskapostia. Voit perua milloin tahansa.</p>
-    </form>
+    <h1>Guides</h1>
+    <ul>
+      <li>Interac: how it works (coming soon)</li>
+      <li>Fast payouts: a practical checklist (coming soon)</li>
+      <li>Verification & account security (coming soon)</li>
+    </ul>
   </section>
 </Base>
