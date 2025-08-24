@@ -1,60 +1,68 @@
 ---
+// src/layouts/Base.astro
 const {
-  title = "SmokeWins — Riippumaton opas (Canada)",
-  description = "Riippumaton opas: maksutavat, kotiutukset ja vastuullinen pelaaminen. Ei kasino-listauksia vielä.",
+  title = "SmokeWins — Independent Guide (Canada)",
+  description = "Independent, ad-free guides for Canadian players. No casino listings yet.",
   canonical,
-  noindex = false, // 🔸 Aseta true jos haluat estää indeksoinnin toistaiseksi
+  noindex = false,
 } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en-CA">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content={description} />
   <title>{title}</title>
+  <meta name="description" content={description} />
   {canonical && <link rel="canonical" href={canonical} />}
-  {noindex && <meta name="robots" content="noindex,nofollow" />} 
+  {noindex && <meta name="robots" content="noindex,nofollow" />}
   <link rel="icon" href="/favicon.svg" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <header class="site">
     <div class="container row">
-      <strong>SmokeWins</strong>
-      <nav class="primary">
-        <a href="/about">Meistä</a>
-        <a href="/methodology">Arviointikriteerit</a>
-        <a href="/guides">Oppaat</a>
-        <a href="/responsible-gambling">Vastuullinen pelaaminen</a>
-        <a href="/contact">Yhteys</a>
+      <a href="/" class="brand">SmokeWins</a>
+      <nav class="primary" aria-label="Main navigation">
+        <a href="/about">About</a>
+        <a href="/methodology">Methodology</a>
+        <a href="/guides">Guides</a>
+        <a href="/responsible-gambling">Responsible Gambling</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main><slot /></main>
+  <main id="content">
+    <slot />
+  </main>
 
   <footer>
     <div class="container grid">
       <section>
-        <h5>Tietoa</h5>
-        <p>SmokeWins on riippumaton opas. Emme vielä suosittele yksittäisiä kasinoita.</p>
-        <p class="disclaimer">19+ Pelaa vastuullisesti. Emme julkaise bonus-inducementteja Ontariossa.</p>
+        <h5>About</h5>
+        <p>SmokeWins is an independent guide. We don’t list or recommend casinos yet.</p>
+        <p class="disclaimer">19+ Play Responsibly. No bonus inducements for Ontario.</p>
       </section>
+
       <section>
-        <h5>Nopeat linkit</h5>
-        <p><a href="/about">Meistä</a></p>
-        <p><a href="/methodology">Arviointikriteerit</a></p>
-        <p><a href="/guides">Oppaat</a></p>
+        <h5>Quick links</h5>
+        <p><a href="/about">About</a></p>
+        <p><a href="/methodology">Methodology</a></p>
+        <p><a href="/guides">Guides</a></p>
+        <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
       </section>
+
       <section>
-        <h5>Laillisuus</h5>
-        <p><a href="/privacy">Tietosuoja</a></p>
-        <p><a href="/terms">Käyttöehdot</a></p>
-        <p><a href="/affiliate-disclosure">Kumppanuusilmoitus</a></p>
+        <h5>Contact & Legal</h5>
+        <p><a href="/contact">Contact</a></p>
+        <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
       </section>
+    </div>
+
+    <div class="container small" style="padding:12px 0;opacity:.7">
+      © {new Date().getFullYear()} SmokeWins
     </div>
   </footer>
 </body>
 </html>
-
