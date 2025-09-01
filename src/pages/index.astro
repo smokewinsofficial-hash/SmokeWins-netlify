@@ -1,14 +1,65 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const pageTitle = "SmokeWins — Independent Guide (Canada)";
+const pageDesc  = "Clear, ad-free guides for Canadian players. Payments, fast withdrawals, verification and responsible gambling.";
 ---
-<Base
-  title="SmokeWins is live 🎉"
-  description="Independent, Canada-focused guide. Payments, fast withdrawals and responsible play."
-  canonical="/"
->
-  <section class="container" style="padding:28px 0">
-    <h1>SmokeWins is live 🎉</h1>
-    <p>Independent guide for Canadians. No casino listings yet — we focus on useful information first.</p>
-    <p style="margin-top:16px"><a class="btn btn-primary" href="/guides">Read Guides</a></p>
+<Base title={pageTitle} description={pageDesc} canonical="/">
+  <header class="hero" style="padding:56px 0 24px; position:relative; overflow:hidden">
+    <div class="halo" style="position:absolute; inset:-80px -40px auto -40px; height:420px; filter:blur(60px); opacity:.5; background:
+      radial-gradient(560px 220px at 40% 30%, rgba(52,211,153,.22), transparent 60%),
+      radial-gradient(520px 220px at 65% 45%, rgba(96,165,250,.20), transparent 60%);"></div>
+
+    <div class="container">
+      <span class="badge" style="display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cfe1ff">Independent • Canada</span>
+      <h1 style="margin:10px 0 8px;font-size:clamp(28px,4vw,48px);line-height:1.1">Welcome to SmokeWins</h1>
+      <p class="lead" style="color:#b7c4e9;max-width:740px;margin:0 0 16px">
+        We publish practical, responsible guides first — payments, fast withdrawals and verification. Casino listings will be added later.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a href="/guides" class="btn btn-primary">Read Guides</a>
+        <a href="/about" class="btn btn-outline">About SmokeWins</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="container" style="padding:20px 0 8px">
+    <div class="grid cards" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <article class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
+        <h2 style="margin:0 0 8px;font-size:20px">Latest guides</h2>
+        <ul style="margin:0;padding-left:18px">
+          <li><a href="/guides/interac">Interac: how it works</a></li>
+          <li><a href="/guides/fast-payouts">Fast payouts: a practical checklist</a></li>
+        </ul>
+      </article>
+
+      <article class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
+        <h2 style="margin:0 0 8px;font-size:20px">How we’ll review</h2>
+        <p style="margin:0 0 6px">Transparent methodology focused on licensing, payment options, payout speed, fairness and RG.</p>
+        <p style="margin:0"><a href="/methodology">Read our methodology</a></p>
+      </article>
+
+      <article class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
+        <h2 style="margin:0 0 8px;font-size:20px">Responsible Gambling</h2>
+        <p style="margin:0 0 6px">Support resources and practical tools. 19+ Play Responsibly. No bonus inducements for Ontario.</p>
+        <p style="margin:0"><a href="/responsible-gambling">See resources</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container" style="padding:8px 0 28px">
+    <div class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
+      <h2 style="margin:0 0 8px;font-size:20px">Get in touch</h2>
+      <p style="margin:0 0 10px">Have questions or partnership inquiries?</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-outline">Contact</a>
+        <a href="/privacy" class="btn btn-outline">Privacy</a>
+        <a href="/terms" class="btn btn-outline">Terms</a>
+        <a href="/affiliate-disclosure" class="btn btn-outline">Affiliate Disclosure</a>
+      </div>
+    </div>
+    <p class="disclaimer" style="margin:10px 4px 0;font-size:12px;color:#b7c4e9">
+      Informational only. 19+ Play Responsibly. We do not publish bonus inducements for Ontario.
+    </p>
   </section>
 </Base>
