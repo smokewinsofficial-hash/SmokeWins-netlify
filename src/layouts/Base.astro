@@ -1,4 +1,5 @@
 ---
+// src/layouts/Base.astro — Aurora theme (EN)
 const {
   title = "SmokeWins — Independent guide (Canada)",
   description = "Independent guide to payments, fast withdrawals and responsible gambling. No casino listings yet.",
@@ -7,7 +8,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,11 +19,11 @@ const {
   <link rel="icon" href="/favicon.svg" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
+<body class="theme-aurora">
   <header class="site">
     <div class="container row">
-      <strong>SmokeWins</strong>
-      <nav class="primary">
+      <a href="/" class="brand">SmokeWins</a>
+      <nav class="primary" aria-label="Main navigation">
         <a href="/about">About</a>
         <a href="/methodology">Methodology</a>
         <a href="/guides">Guides</a>
@@ -32,27 +33,35 @@ const {
     </div>
   </header>
 
-  <main><slot /></main>
+  <main id="content">
+    <slot />
+  </main>
 
   <footer>
     <div class="container grid">
       <section>
         <h5>About</h5>
-        <p>SmokeWins is an independent guide. We do not list or promote casinos yet.</p>
-        <p class="disclaimer">19+ Play responsibly. No bonus inducements in Ontario.</p>
+        <p>SmokeWins is an independent guide. We don’t list or recommend casinos yet.</p>
+        <p class="disclaimer">19+ Play Responsibly. No bonus inducements for Ontario.</p>
       </section>
+
       <section>
         <h5>Quick links</h5>
         <p><a href="/about">About</a></p>
         <p><a href="/methodology">Methodology</a></p>
         <p><a href="/guides">Guides</a></p>
+        <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
       </section>
+
       <section>
-        <h5>Legal</h5>
-        <p><a href="/privacy">Privacy</a></p>
-        <p><a href="/terms">Terms</a></p>
-        <p><a href="/affiliate-disclosure">Affiliate disclosure</a></p>
+        <h5>Contact & Legal</h5>
+        <p><a href="/contact">Contact</a></p>
+        <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
       </section>
+    </div>
+
+    <div class="container small" style="padding:12px 0;opacity:.7">
+      © {new Date().getFullYear()} SmokeWins
     </div>
   </footer>
 </body>
