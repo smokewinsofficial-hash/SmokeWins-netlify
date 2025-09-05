@@ -1,10 +1,24 @@
 [build]
-command = "npm run build"
-publish = "dist"
+  command = "npm run build"
+  publish = "dist"
 
-# Optional: If you prefer TOML redirects instead of public/_redirects
-# [[redirects]]
-# from = "/go/*"
-# to = "https://example.com/:splat"
-# status = 302
-# force = true
+# Perus reitit on jo kunnossa – tähän headerit
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self';"
+
+# Cachea kuville ja fontille
+[[headers]]
+  for = "/branding/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
