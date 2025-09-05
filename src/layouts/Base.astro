@@ -1,5 +1,5 @@
 ---
-// src/layouts/Base.astro — Aurora theme (EN)
+/* src/layouts/Base.astro — Aurora theme (EN) */
 const {
   title = "SmokeWins — Independent guide (Canada)",
   description = "Independent guide to payments, fast withdrawals and responsible gambling. No casino listings yet.",
@@ -9,70 +9,75 @@ const {
 ---
 <!doctype html>
 <html lang="en-CA">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  {canonical && <link rel="canonical" href={canonical} />}
-  {noindex && <meta name="robots" content="noindex,nofollow" />}
-  <link rel="icon" href="/favicon.svg" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body class="theme-aurora">
-  <header class="site">
-    <div class="container row">
-      <a href="/" class="brand">SmokeWins</a>
-      <nav class="primary" aria-label="Main navigation">
-        <a href="/about">About</a>
-        <a href="/methodology">Methodology</a>
-        <a href="/guides">Guides</a>
-        <a href="/responsible-gambling">Responsible Gambling</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-  <main id="content">
-    <slot />
-  </main>
+  <body class="theme-aurora">
+    <header class="site">
+      <div class="container row">
+        {/* BRAND / LOGO — vain tässä */}
+        <a href="/" class="brand" aria-label="SmokeWins">
+          <img
+            class="brand__logo"
+            src="/branding/smokewins-logo.png"
+            alt="SmokeWins"
+            width="256"
+            height="96"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
 
-  <footer>
-    <div class="container grid">
-      <section>
-        <h5>About</h5>
-        <p>SmokeWins is an independent guide. We don’t list or recommend casinos yet.</p>
-        <p class="disclaimer">19+ Play Responsibly. No bonus inducements for Ontario.</p>
-      </section>
+        <nav class="primary" aria-label="Main navigation">
+          <a href="/about">About</a>
+          <a href="/methodology">Methodology</a>
+          <a href="/guides">Guides</a>
+          <a href="/responsible-gambling">Responsible Gambling</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-      <section>
-        <h5>Quick links</h5>
-        <p><a href="/about">About</a></p>
-        <p><a href="/methodology">Methodology</a></p>
-        <p><a href="/guides">Guides</a></p>
-        <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
-      </section>
+    <main id="content">
+      <slot />
+    </main>
 
-      <section>
-        <h5>Contact & Legal</h5>
-        <p><a href="/contact">Contact</a></p>
-        <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
-      </section>
-    </div>
+    <footer>
+      <div class="container grid">
+        <section>
+          <h5>About</h5>
+          <p>
+            SmokeWins is an independent guide. We don’t list or recommend casinos yet.
+          </p>
+          <p class="disclaimer">19+ Play Responsibly. No bonus inducements for Ontario.</p>
+        </section>
 
-    <div class="container small" style="padding:12px 0;opacity:.7">
-      © {new Date().getFullYear()} SmokeWins
-    </div>
-  </footer>
-</body>
+        <section>
+          <h5>Quick links</h5>
+          <p><a href="/about">About</a></p>
+          <p><a href="/methodology">Methodology</a></p>
+          <p><a href="/guides">Guides</a></p>
+          <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+        </section>
+
+        <section>
+          <h5>Contact & Legal</h5>
+          <p><a href="/contact">Contact</a></p>
+          <p><a href="/affiliate-disclosure">Affiliate Disclosure</a></p>
+        </section>
+      </div>
+
+      <div class="container small" style="padding:12px 0;opacity:.7">
+        © {new Date().getFullYear()} SmokeWins
+      </div>
+    </footer>
+  </body>
 </html>
-<a href="/" class="brand" aria-label="SmokeWins home">
-  <img
-    src="/branding/smokewins-logo.png"
-    alt="SmokeWins logo"
-    width="256"
-    height="96"
-    loading="eager"
-    decoding="async"
-  />
-</a>
