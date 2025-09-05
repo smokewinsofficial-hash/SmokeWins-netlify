@@ -89,3 +89,12 @@ header, main, footer { position: relative; z-index: 1; }
 
 /* (valinnainen) linkkien hover-kontrasti */
 .theme-aurora a:hover { text-decoration: underline; }
+/* styles.css (tai Base.astro <style> … ) */
+.site .brand img {
+  height: 44px;      /* säädä haluamasi navbar-korkeus */
+  width: auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .site .brand img { height: 52px; }
+}
