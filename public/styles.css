@@ -1,100 +1,185 @@
+/* ========== Base reset ========== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ========== Theme tokens ========== */
 :root{
-  --bg:#0b0f1d; --panel:#0f1531; --text:#eaf1ff; --muted:#b6c2e2;
-  --accent:#34d399; --accent2:#60a5fa; --radius:18px; --shadow:0 14px 30px rgba(0,0,0,.25);
-}
-*{box-sizing:border-box} html,body{height:100%}
-body{margin:0;background:linear-gradient(180deg,#0a0d19, var(--bg));color:var(--text);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial}
-a{color:var(--accent2);text-decoration:none} a:hover{text-decoration:underline}
-.container{width:min(1160px,92%);margin:0 auto} .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:700}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#1ee19d);color:#05250f;box-shadow:0 8px 22px rgba(52,211,153,.35)}
-.btn-outline{border:2px solid var(--accent);color:var(--text)}
-header.site{position:sticky;top:0;z-index:40;background:#0a1021d9;border-bottom:1px solid #1b2654;backdrop-filter:blur(8px)}
-header .row{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-nav.primary a{margin-left:16px;color:#cbd6ff} nav.primary a:hover{color:#fff}
-.hero{position:relative;padding:64px 0 40px;overflow:hidden}
-.halo{position:absolute;inset:-60px -40px auto -40px;height:420px;filter:blur(60px);opacity:.5;
-  background:radial-gradient(560px 220px at 40% 30%, rgba(52,211,153,.25), transparent 60%),
-             radial-gradient(520px 220px at 65% 45%, rgba(96,165,250,.22), transparent 60%)}
-h1{font-size:clamp(30px,4vw,52px);line-height:1.05;margin:0 0 10px} p.lead{color:var(--muted);font-size:clamp(15px,1.8vw,18px);margin:0 0 18px}
-.badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:#0c132b;border:1px solid #1e2952;color:var(--muted)}
-.grid{display:grid;gap:18px} .cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:linear-gradient(180deg,#0f1531,var(--panel));border:1px solid #212956;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
-section{padding:28px 0} footer{padding:36px 0 60px;color:#b7c4e9;border-top:1px solid #1b2654}
-footer h5{margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:#d7e3ff}
-footer .grid{grid-template-columns:1.6fr 1fr 1fr} footer .disclaimer{margin-top:10px;font-size:12px;line-height:1.6;color:#a7b6dc}
-/* Table */
-.table .head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:10px}
-table.compare{width:100%;border-collapse:collapse;overflow:hidden;border-radius:var(--radius);background:linear-gradient(180deg,#0f1531,#11183a);border:1px solid #202a5b}
-table.compare thead th{position:sticky;top:0;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#c2ceef;background:#121739;padding:12px 14px;border-bottom:1px solid #263168}
-table.compare tbody td{padding:14px;border-bottom:1px solid #202a5b;vertical-align:middle}
-.pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#0b1835;border:1px solid #203165;color:#cfe1ff}
-.score{font-weight:800} .visit{text-align:right}
-@media (max-width:760px){
-  table.compare thead{display:none}
-  table.compare, table.compare tbody, table.compare tr, table.compare td{display:block;width:100%}
-  table.compare tr{margin-bottom:12px;border:1px solid #202a5b;border-radius:var(--radius)}
-  table.compare td{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #223066}
-  table.compare td::before{content:attr(data-label);font-weight:700;color:#d7e3ff} .visit{text-align:left}
-}
-/* === AURORA THEME (dark) ========================================= */
-/* Pidä tausta paikallaan skrollissa */
-html, body { background-attachment: fixed; }
-
-/* Kevyt "paper noise" -overlay (SVG data-URI, ei ulkoisia tiedostoja) */
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  opacity: .05;
-  background-image: url('data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">\
-<filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter>\
-<rect width="100%" height="100%" filter="url(%23n)"/></svg>');
-  z-index: 0;
+  --bg-0: #0b0f1a;
+  --bg-1: #0e1623;
+  --card: #0f1b2a;
+  --text: #e6eef7;
+  --muted: #a6b3c4;
+  --accent: #e63946;   /* punainen */
+  --accent-2: #f2c14e; /* kulta */
+  --line: rgba(255,255,255,.08);
 }
 
-/* Varmistetaan että sisältö menee overlayn päälle */
-header, main, footer { position: relative; z-index: 1; }
-
-/* ---------- Aurora (dark) ---------- */
-.theme-aurora {
+/* ========== Global ========== */
+body.theme-aurora{
+  color: var(--text);
   background:
-    radial-gradient(60% 40% at 80% 20%, rgba(86,198,255,.18) 0, transparent 60%),
-    radial-gradient(50% 50% at 20% 10%, rgba(130,255,173,.16) 0, transparent 60%),
-    radial-gradient(60% 60% at 50% 80%, rgba(255,109,181,.16) 0, transparent 60%),
-    linear-gradient(180deg, #0b0f1d 0%, #12172a 100%);
-  color-scheme: dark;
-  color: #dfe9ff;
-}
-.theme-aurora::before{
-  content:"";
-  position: fixed;
-  inset: -20%;
-  background:
-    radial-gradient(60% 50% at 20% 20%, rgba(0,255,163,.18) 0, transparent 60%),
-    radial-gradient(40% 40% at 80% 30%, rgba(88,198,255,.22) 0, transparent 60%),
-    radial-gradient(60% 60% at 50% 110%, rgba(255,109,181,.18) 0, transparent 60%);
-  filter: blur(60px);
-  opacity: .45;
-  animation: auroraFloat 28s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
-}
-@keyframes auroraFloat {
-  0%   { transform: translate3d(-2%, 0, 0) scale(1); }
-  100% { transform: translate3d(2%, -2%, 0) scale(1.05); }
+    radial-gradient(1200px 600px at 15% 20%, rgba(46,196,182,.12), transparent 60%),
+    radial-gradient(900px 500px at 80% 0%, rgba(230,57,70,.12), transparent 60%),
+    radial-gradient(700px 600px at 50% 100%, rgba(23,162,184,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1) 60%);
+  font: 400 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* (valinnainen) linkkien hover-kontrasti */
-.theme-aurora a:hover { text-decoration: underline; }
-/* styles.css (tai Base.astro <style> … ) */
-.site .brand img {
-  height: 44px;      /* säädä haluamasi navbar-korkeus */
+a { color: #b8d4ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container{
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.row{ display: flex; gap: 24px; align-items: center; }
+
+/* ========== Header ========== */
+header.site{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.2) 70%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.site .container{
+  padding-block: 14px;
+}
+
+/* BRAND: logo vain headerissa */
+header.site .brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header.site .brand__logo{
+  /* Estetään aiempien tyylien fix/absolute-positioinnit */
+  position: relative !important;
+  inset: auto !important;          /* nollaa top/right/bottom/left */
+  margin: 0 !important;
+
+  height: 46px;
   width: auto;
-  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.45));
 }
-@media (min-width: 768px) {
-  .site .brand img { height: 52px; }
+
+/* NAV */
+nav.primary{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+nav.primary a{
+  color: var(--text);
+  opacity: .9;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background-color .2s ease, opacity .2s ease;
+}
+
+nav.primary a:hover{
+  background: rgba(255,255,255,.06);
+  opacity: 1;
+}
+
+/* ========== Main ========== */
+main#content{ padding-block: 28px; }
+
+/* ========== Footer ========== */
+footer{
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.5));
+  margin-top: 24px;
+}
+
+footer .container{
+  padding-block: 36px;
+}
+
+footer .grid{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 26px;
+}
+
+footer h5{
+  margin: 0 0 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+footer p{ margin: 8px 0; color: var(--muted); }
+
+footer .disclaimer{
+  font-size: .92rem;
+  color: #9fb0c7;
+}
+
+/* ========== Buttons (hero/cta-osiin) ========== */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.07);
+  color: var(--text);
+  text-decoration: none;
+  transition: background .2s ease, transform .06s ease;
+}
+.btn:hover{ background: rgba(255,255,255,.12); }
+.btn:active{ transform: translateY(1px); }
+
+.btn--accent{
+  background: linear-gradient(180deg, #ff5151, var(--accent));
+  color: white;
+  box-shadow: 0 8px 24px rgba(230,57,70,.35);
+}
+.btn--accent:hover{ filter: brightness(1.05); }
+
+/* ========== Utilities ========== */
+.small{ font-size: .92rem; color: var(--muted); }
+.muted{ color: var(--muted); }
+
+/* ========== Responsive ========== */
+@media (max-width: 900px){
+  header.site .brand__logo{ height: 42px; }
+  nav.primary{ gap: 14px; }
+  footer .grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px){
+  .row{ flex-wrap: wrap; }
+  nav.primary{
+    width: 100%;
+    margin-left: 0;
+    padding-top: 8px;
+    gap: 12px;
+  }
+  header.site .brand__logo{ height: 38px; }
+  main#content{ padding-block: 22px; }
+  footer .grid{ grid-template-columns: 1fr; }
+}
+
+/* ========== Safety net (jos aiempi CSS pakotti logon kiinni pohjaan) ========== */
+/* Ylikirjoitetaan mahdolliset vanhat säännöt, jotka asettivat logon ruudun nurkkaan. */
+.brand__logo,
+header.site .brand img{
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
 }
