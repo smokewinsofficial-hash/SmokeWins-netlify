@@ -1,21 +1,60 @@
 ---
-/* src/layouts/Base.astro — Aurora theme (EN) */
+// src/layouts/Base.astro — Aurora theme (EN + OG/Twitter/Schema)
 const {
   title = "SmokeWins — Independent guide (Canada)",
   description = "Independent guide to payments, fast withdrawals and responsible gambling. No casino listings yet.",
   canonical = undefined,
   noindex = false
 } = Astro.props;
+
+// Sivuston perus-URL (päivitä, jos käytät toista domainia esikatseluissa tms.)
+const siteUrl = "https://smokewins.com";
+
+// Rakennetaan og:url: käytä canonicalia jos annettu, muuten etusivu
+const ogUrl = canonical
+  ? new URL(canonical, siteUrl).toString()
+  : siteUrl;
+
+// OG/Twitter-kuvan absoluuttinen osoite
+const ogImage = `${siteUrl}/branding/smokewins-logo.png`;
 ---
 <!doctype html>
 <html lang="en-CA">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <link rel="canonical" href={ogUrl} />}
     {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Hreflang (target: Canada EN) -->
+    <link rel="alternate" hrefLang="en-CA" href={siteUrl} />
+
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "SmokeWins",
+        url: siteUrl,
+        logo: ogImage,
+        sameAs: []
+      })}
+    </script>
+
     <link rel="icon" href="/favicon.svg" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
