@@ -1,5 +1,5 @@
 {
-  "name": "smokewins",
+  "name": "smokewins-astro",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -9,9 +9,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "4.16.19"
+    "astro": "^4.16.19"
   },
-  "engines": {
-    "node": ">=20.9.0"
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.1.3"
   }
 }
