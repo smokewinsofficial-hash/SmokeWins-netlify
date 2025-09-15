@@ -1,0 +1,29 @@
+---
+// src/layouts/GuideLayout.astro
+import Base from "../layouts/Base.astro";
+const { content } = Astro.props; // Astro content collections antaa "content"
+const { title, description, updated, tags } = content.data;
+
+const pageTitle = `${title} — SmokeWins Guides`;
+const pageDesc = description;
+const canonical = `/guides/${content.slug}/`;
+---
+<Base title={pageTitle} description={pageDesc} canonical={canonical}>
+  <article class="container" style="padding:28px 0 40px; max-width:900px">
+    <header style="margin:0 0 16px">
+      <p class="badge">Guide</p>
+      <h1 style="margin:6px 0 10px">{title}</h1>
+      <p class="muted" style="margin:0 0 8px">{description}</p>
+      {updated && <p class="muted" style="font-size:12px">Updated: {updated}</p>}
+      {tags?.length > 0 && (
+        <p style="margin:6px 0 0; font-size:12px; opacity:.85">
+          {tags.map((t) => <span style="margin-right:8px">#{t}</span>)}
+        </p>
+      )}
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</Base>
