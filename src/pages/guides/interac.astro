@@ -1,26 +1,37 @@
 ---
 import Base from "../../layouts/Base.astro";
+
+const title = "Interac: how it works (Canada)";
+const desc  = "Fees, limits, speed and what to expect when using Interac for deposits and withdrawals.";
 ---
-<Base title="Interac: how it works (Canada)" description="Basics of using Interac online, typical limits and safety tips." canonical="/guides/interac">
+
+<Base title={title} description={desc} canonical="/guides/interac">
   <section class="container" style="padding:28px 0">
-    <h1>Interac: how it works</h1>
-    <p><strong>Interac</strong> is a popular Canadian payment method connected to your bank. Online, you’ll typically see Interac e-Transfer or Interac Online.</p>
+    <h1>Interac: how it works (Canada)</h1>
+    <p class="muted" style="max-width:720px">
+      Interac is widely supported by Canadian operators. It’s familiar, fast and trusted.
+    </p>
 
-    <h2>Basics</h2>
-    <ul>
-      <li><strong>Availability:</strong> Most Canadian banks support Interac e-Transfer.</li>
-      <li><strong>Typical limits:</strong> daily/weekly limits depend on your bank tier.</li>
-      <li><strong>Fees:</strong> often free or low cost; check your bank’s policy.</li>
-      <li><strong>Speed:</strong> transfers are usually near-instant; withdrawals may require verification.</li>
+    <h2 style="margin-top:18px">Deposits</h2>
+    <ul style="margin:0;padding-left:18px;line-height:1.8">
+      <li>Typical limits (per transaction)…</li>
+      <li>Expected fees…</li>
     </ul>
 
-    <h2>Safety tips</h2>
-    <ul>
-      <li>Enable two-factor authentication in your bank.</li>
-      <li>Verify the recipient and reference before sending.</li>
-      <li>Use strong, unique passwords for all financial services.</li>
+    <h2 style="margin-top:18px">Withdrawals</h2>
+    <ul style="margin:0;padding-left:18px;line-height:1.8">
+      <li>Processing time…</li>
+      <li>ID/verification notes…</li>
     </ul>
 
-    <p class="disclaimer" style="margin-top:12px">Informational only. 19+ Play Responsibly. No bonus inducements for Ontario.</p>
+    <h2 style="margin-top:18px">Security & tips</h2>
+    <ul style="margin:0;padding-left:18px;line-height:1.8">
+      <li>Use strong 2FA on your payment apps.</li>
+      <li>Keep account email secure, etc.</li>
+    </ul>
+
+    <p class="disclaimer" style="margin-top:12px;color:#b7c4e9;font-size:12px">
+      19+ Play responsibly. No bonus inducements in Ontario.
+    </p>
   </section>
 </Base>
