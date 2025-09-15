@@ -1,9 +1,11 @@
 ---
+// src/pages/404.astro
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Page not found">
-  <section class="container" style="padding:48px 0">
-    <h1>404 — Page not found</h1>
-    <p>Try the <a href="/">homepage</a>.</p>
+<Base title="Page not found — SmokeWins" description="We couldn't find the page you requested." canonical="/404">
+  <section class="container" style="padding:56px 0 32px">
+    <h1 style="margin:0 0 10px">404 — Not found</h1>
+    <p class="muted" style="margin:0 0 16px">We couldn't find that page.</p>
+    <a href="/" class="btn btn--accent">Back to home</a>
   </section>
 </Base>
