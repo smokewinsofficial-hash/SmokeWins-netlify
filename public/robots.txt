@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smokewins.com/sitemap-index.xml
