@@ -1,10 +1,7 @@
 ---
-# src/content/guides/interac.md
 title: "Interac: how it works (Canada)"
 description: "Fees, limits, speed and what to expect when using Interac for deposits and withdrawals."
-updated: "2025-09-01"
-tags: ["payments", "interac", "canada"]
-layout: "../../layouts/GuideLayout.astro"
+layout: "../../layouts/Base.astro"
 ---
 
 ## Overview
