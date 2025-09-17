@@ -1,18 +1,22 @@
 ---
 import Base from "../../layouts/Base.astro";
 
-// Kevyt käsin tehty lista (selkein alkuun).
 const guides = [
   { url: "/guides/interac",        title: "Interac — how it works (Canada)", desc: "Deposits, withdrawals, limits & speed." },
-  { url: "/guides/fast-payouts",   title: "Fast withdrawals — checklist",     desc: "How to get your payouts faster, safely." },
-  // Lisää tänne kun teet uusia sivuja:
-  // { url: "/guides/visa", title: "Visa — fees & speed", desc: "..." },
-  // { url: "/guides/mastercard", title: "Mastercard — deposits & withdrawals", desc: "..." },
+  { url: "/guides/apple-pay",      title: "Apple Pay — card token payments", desc: "Availability, fees, limits and speed for Canadians." },
+  { url: "/guides/visa",           title: "Visa — deposits & withdrawals",   desc: "Card fees, 3DS, payout routes and timing." },
+  { url: "/guides/mastercard",     title: "Mastercard — deposits & payouts", desc: "What’s supported, verification and chargebacks." },
+  { url: "/guides/skrill",         title: "Skrill — e-wallet basics",        desc: "Fees, limits, KYC and speed (Canada)." },
+  { url: "/guides/neteller",       title: "Neteller — e-wallet basics",      desc: "Fees, limits, KYC and speed (Canada)." },
+  { url: "/guides/paypal",         title: "PayPal — availability in Canada", desc: "Where it works, fees and payout timing." },
+  { url: "/guides/paysafecard",    title: "Paysafecard — voucher deposits",  desc: "Where it fits, fees, limits and caveats." },
+  { url: "/guides/bank-transfer",  title: "Bank transfer (wire) — overview", desc: "When to use it, speed, fees and verification." },
+  { url: "/guides/fast-payouts",   title: "Fast withdrawals — checklist",    desc: "Practical steps to get paid faster, safely." },
 ];
 ---
 
 <Base title="Payment & verification guides (Canada)"
-      description="Interac, fast payouts, verification & more — independent guides for Canadian players."
+      description="Interac, Apple Pay, cards, e-wallets, vouchers and fast payouts — independent guides for Canadian players."
       canonical="/guides">
 
   <section class="container" style="padding:32px 0 12px">
