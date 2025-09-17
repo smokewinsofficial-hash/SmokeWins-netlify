@@ -1,0 +1,28 @@
+---
+import Base from "./Base.astro";
+const {
+  title = "Payment method",
+  description = "How it works, fees, limits and payout speed.",
+  updated = undefined,
+} = Astro.props;
+---
+<Base title={`${title} — SmokeWins`} description={description}>
+  <article class="container" style="padding:28px 0 36px; max-width:900px">
+    <header style="margin:0 0 16px">
+      <p class="badge" style="display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cfe1ff;margin:0">
+        Payments
+      </p>
+      <h1 style="margin:8px 0 8px">{title}</h1>
+      <p class="muted" style="margin:0 0 6px;max-width:720px">{description}</p>
+      {updated && <p class="muted" style="font-size:12px;margin:6px 0 0">Updated: {updated}</p>}
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+
+    <p class="disclaimer" style="margin-top:18px;color:#b7c4e9;font-size:12px">
+      Availability and limits vary by operator and province. 19+ Play Responsibly. No bonus inducements in Ontario.
+    </p>
+  </article>
+</Base>
