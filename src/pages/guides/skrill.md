@@ -1,7 +1,7 @@
 ---
 title: "Skrill"
 description: "E-wallet deposits and fast withdrawals; fees and limits."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
