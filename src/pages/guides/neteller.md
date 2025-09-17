@@ -1,7 +1,7 @@
 ---
 title: "Neteller"
 description: "E-wallet similar to Skrill; deposits and withdrawals."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
