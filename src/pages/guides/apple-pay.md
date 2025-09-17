@@ -1,7 +1,7 @@
 ---
 title: "Apple Pay"
 description: "Convenient front-end for card deposits on iOS."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
