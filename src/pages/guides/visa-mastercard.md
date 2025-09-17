@@ -1,7 +1,7 @@
 ---
 title: "Visa & Mastercard"
 description: "Where cards work best, fees and payout considerations."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
