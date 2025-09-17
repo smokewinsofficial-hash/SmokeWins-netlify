@@ -1,7 +1,7 @@
 ---
 title: "Bank transfer"
 description: "Direct payouts to your bank; reliable but can be slower."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
