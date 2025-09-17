@@ -2,8 +2,9 @@
 title: "Interac: how it works (Canada)"
 description: "Deposits, withdrawals, fees, limits and expected speed when using Interac."
 updated: "2025-09-01"
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"   <!-- HUOM: kaksi pistettä -->
 ---
+
 
 ## Overview
 Interac is widely supported by Canadian operators. It’s familiar, fast and trusted…
