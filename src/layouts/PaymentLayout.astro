@@ -2,40 +2,47 @@
 // src/layouts/PaymentLayout.astro
 import Base from "./Base.astro";
 
-// Ota otsikko & kuvaus MD-tiedoston frontmatterista
 const {
-  title = "Payment guide",
+  title = "Payment guide (Canada)",
   description = "Payment method details for Canadian players.",
   canonical,
   noindex = false,
-  updated,   // optional: esim. "2025-09-01"
-  tags = [], // optional: ["payments","canada"]
+  updated = undefined,   // esim. "2025-09-01"
+  tags = [],             // esim. ["payments","canada"]
 } = Astro.props;
 ---
-
 <Base {title} {description} {canonical} {noindex}>
-  <section class="container" style="padding:32px 0 16px">
-    <h1 style="margin:0 0 10px">{title}</h1>
-    {description && <p class="muted" style="max-width:760px;margin:0 0 16px">{description}</p>}
-    {(updated || tags?.length) && (
-      <p class="meta" style="font-size:12px;opacity:.75;margin:0 0 12px">
+  <header class="container header">
+    <h1 class="title">{title}</h1>
+    {description && <p class="muted desc">{description}</p>}
+    {(updated || tags.length) && (
+      <p class="meta">
         {updated && <>Updated: {updated}</>}
-        {updated && tags?.length ? " · " : ""}
-        {tags?.length ? <>Tags: {tags.join(", ")}</> : ""}
+        {updated && tags.length ? " · " : ""}
+        {tags.length ? <>Tags: {tags.join(", ")}</> : null}
       </p>
     )}
-  </section>
+  </header>
 
-  <main class="container" style="padding:8px 0 40px">
+  <!-- Huom: Base.astro sisältää jo <main>-elementin, joten käytämme <section> -->
+  <section class="container content">
     <article class="prose">
       <slot />
     </article>
-  </main>
+  </section>
 </Base>
 
 <style>
-  .prose :where(h2,h3){ margin: 1.2em 0 .4em; }
-  .prose p   { margin: .6em 0; }
-  .prose ul  { margin: .4em 0 .8em 1.2em; line-height: 1.7; }
-  .muted     { color: #b7c4e9; }
+  .container { padding: 32px 0; }
+  .header { padding-bottom: 12px; }
+  .title { margin: 0 0 10px; }
+  .desc { max-width: 760px; margin: 0 0 12px; }
+  .meta { font-size: 12px; opacity: .75; margin: 0; }
+  .content { padding-top: 8px; padding-bottom: 40px; }
+
+  .prose :where(h2,h3) { margin: 1.2em 0 .4em; }
+  .prose p { margin: .6em 0; }
+  .prose ul { margin: .4em 0 .8em 1.2em; line-height: 1.7; }
+
+  .muted { color: #b7c4e9; }
 </style>
