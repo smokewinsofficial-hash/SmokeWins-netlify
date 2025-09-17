@@ -1,7 +1,7 @@
 ---
 title: "iDebit & INSTADEBIT"
 description: "Bank-linked Canadian options for deposits and withdrawals."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
