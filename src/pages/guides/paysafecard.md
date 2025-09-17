@@ -1,7 +1,7 @@
 ---
 title: "Paysafecard"
 description: "Prepaid vouchers for controlled deposits."
-layout: "../../../layouts/PaymentLayout.astro"
+layout: "../../layouts/PaymentLayout.astro"
 ---
 
 ## Overview
