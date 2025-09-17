@@ -1,29 +1,57 @@
 ---
 // src/layouts/GuideLayout.astro
-import Base from "../layouts/Base.astro";
-const { content } = Astro.props; // Astro content collections antaa "content"
-const { title, description, updated, tags } = content.data;
+import Base from "./Base.astro";
 
-const pageTitle = `${title} — SmokeWins Guides`;
-const pageDesc = description;
-const canonical = `/guides/${content.slug}/`;
+// Frontmatter tulee suoraan Astro.props:ista, koska käytämme src/pages/...
+const {
+  title = "Guide (Canada)",
+  description = "",
+  canonical,           // valinnainen: voi tulla suoraan frontmatterista
+  noindex = false,
+  updated = undefined, // esim. "2025-09-01"
+  tags = [],           // esim. ["payments", "canada"]
+} = Astro.props;
+
+// Jos canonicalia ei anneta frontmatterissa, pudota se URL:sta
+const computedCanonical = canonical ?? Astro.url?.pathname ?? undefined;
 ---
-<Base title={pageTitle} description={pageDesc} canonical={canonical}>
-  <article class="container" style="padding:28px 0 40px; max-width:900px">
-    <header style="margin:0 0 16px">
-      <p class="badge">Guide</p>
-      <h1 style="margin:6px 0 10px">{title}</h1>
-      <p class="muted" style="margin:0 0 8px">{description}</p>
-      {updated && <p class="muted" style="font-size:12px">Updated: {updated}</p>}
-      {tags?.length > 0 && (
-        <p style="margin:6px 0 0; font-size:12px; opacity:.85">
-          {tags.map((t) => <span style="margin-right:8px">#{t}</span>)}
-        </p>
-      )}
-    </header>
+<Base title={`${title} — SmokeWins Guides`}
+      description={description}
+      canonical={computedCanonical}
+      noindex={noindex}>
 
-    <div class="prose">
+  <header class="container header">
+    <p class="badge">Guide</p>
+    <h1 class="title">{title}</h1>
+    {description && <p class="muted desc">{description}</p>}
+    {(updated || tags.length) && (
+      <p class="meta">
+        {updated && <>Updated: {updated}</>}
+        {updated && tags.length ? " · " : ""}
+        {tags.length ? tags.map((t) => <span style="margin-right:8px">#{t}</span>) : null}
+      </p>
+    )}
+  </header>
+
+  <!-- HUOM: Base.astro sisältää jo <main>in, joten käytä <section>ia -->
+  <section class="container content">
+    <article class="prose">
       <slot />
-    </div>
-  </article>
+    </article>
+  </section>
 </Base>
+
+<style>
+  .container { padding: 28px 0; max-width: 900px; }
+  .header { padding-bottom: 8px; }
+  .badge { opacity: .8; font-size: 12px; margin: 0 0 6px; }
+  .title { margin: 6px 0 10px; }
+  .desc { max-width: 760px; margin: 0 0 8px; }
+  .meta { margin: 6px 0 0; font-size: 12px; opacity: .85; }
+  .content { padding-top: 8px; padding-bottom: 40px; }
+
+  .prose :where(h2,h3){ margin: 1.2em 0 .4em; }
+  .prose p   { margin: .6em 0; }
+  .prose ul  { margin: .4em 0 .8em 1.2em; line-height: 1.7; }
+  .muted     { color: #b7c4e9; }
+</style>
