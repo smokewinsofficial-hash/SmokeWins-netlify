@@ -1,13 +1,21 @@
 ---
-import Base from "../../layouts/Base.astro";
+import Base from "../../../layouts/Base.astro";
+const pageTitle = "Payments in Canada — Guides";
+const pageDesc  = "How the main payment methods work: deposits, withdrawals, fees, limits and speed.";
 ---
-<Base title="Guides" description="Payments, fast withdrawals and verification basics." canonical="/guides">
-  <section class="container" style="padding:28px 0">
-    <h1>Guides</h1>
-    <ul>
-      <li>Interac: how it works (coming soon)</li>
-      <li>Fast payouts: a practical checklist (coming soon)</li>
-      <li>Verification & account security (coming soon)</li>
-    </ul>
+<Base title={pageTitle} description={pageDesc} canonical="/guides/payments/">
+  <section class="container" style="padding:28px 0 8px">
+    <h1 style="margin:0 0 10px">Payment methods in Canada</h1>
+    <p class="muted" style="max-width:780px;margin:0 0 16px">
+      We cover how deposits and withdrawals work, typical fees and limits, expected payout speed, and verification notes for each method.
+    </p>
+
+    <div class="grid cards" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <article class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
+        <h2 style="margin:0 0 6px"><a href="/guides/payments/interac">Interac</a></h2>
+        <p class="muted" style="margin:0">The most common Canadian method. Familiar and fast.</p>
+      </article>
+      <!-- lisää muut samalla mallilla -->
+    </div>
   </section>
 </Base>
