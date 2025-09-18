@@ -1,7 +1,9 @@
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://smokewins.com',
-  integrations: [sitemap()]
+  trailingSlash: 'always', // vaihtoehdot: 'always' | 'never' | 'ignore'
+  integrations: [sitemap()],
 });
