@@ -2,23 +2,22 @@
 import Base from "../../layouts/Base.astro";
 
 const guides = [
-  { url: "/guides/payments/interac",           title: "Interac — how it works (Canada)",      desc: "Deposits, withdrawals, limits & speed." },
-  { url: "/guides/payments/apple-pay",         title: "Apple Pay — card token payments",      desc: "Availability, fees, limits and speed for Canadians." },
-  { url: "/guides/payments/visa-mastercard",   title: "Visa & Mastercard — deposits & payouts", desc: "Card fees, 3DS, payout routes and timing." },
-  { url: "/guides/payments/skrill",            title: "Skrill — e-wallet basics",             desc: "Fees, limits, KYC and speed (Canada)." },
-  { url: "/guides/payments/neteller",          title: "Neteller — e-wallet basics",           desc: "Fees, limits, KYC and speed (Canada)." },
-  { url: "/guides/payments/paysafecard",       title: "Paysafecard — voucher deposits",       desc: "Where it fits, fees, limits & caveats." },
-  { url: "/guides/payments/bank-transfer",     title: "Bank transfer (wire) — overview",      desc: "When to use it, speed, fees & verification." },
-  { url: "/guides/payments/idebit-instadebit", title: "iDebit / InstaDebit — overview",       desc: "Availability, fees & speed." },
-  { url: "/guides/payments/fast-payouts",      title: "Fast withdrawals — checklist",         desc: "Practical steps to get paid faster, safely." },
+  { url: "/guides/interac",        title: "Interac — how it works (Canada)", desc: "Deposits, withdrawals, limits & speed." },
+  { url: "/guides/apple-pay",      title: "Apple Pay — card token payments", desc: "Availability, fees, limits and speed for Canadians." },
+  { url: "/guides/visa-mastercard",title: "Visa & Mastercard — deposits & payouts", desc: "Card fees, 3DS, payout routes and timing." },
+  { url: "/guides/skrill",         title: "Skrill — e-wallet basics",        desc: "Fees, limits, KYC and speed (Canada)." },
+  { url: "/guides/neteller",       title: "Neteller — e-wallet basics",      desc: "Fees, limits, KYC and speed (Canada)." },
+  { url: "/guides/paysafecard",    title: "Paysafecard — voucher deposits",  desc: "Where it fits, fees, limits & caveats." },
+  { url: "/guides/bank-transfer",  title: "Bank transfer (wire) — overview", desc: "When to use it, speed, fees & verification." },
+  { url: "/guides/idebit-instaDebit", title: "iDebit / InstaDebit — overview", desc: "Availability, fees & speed." },
+  { url: "/guides/fast-payouts",   title: "Fast withdrawals — checklist",    desc: "Practical steps to get paid faster, safely." },
 ];
 ---
 
-<Base
-  title="Payment & verification guides (Canada)"
-  description="Interac, Apple Pay, cards, e-wallets, vouchers and fast payouts — independent guides for Canadian players."
-  canonical="/guides"
->
+<Base title="Payment & verification guides (Canada)"
+      description="Interac, Apple Pay, cards, e-wallets, vouchers and fast payouts — independent guides for Canadian players."
+      canonical="/guides">
+
   <section class="container" style="padding:32px 0 12px">
     <h1 style="margin:0 0 12px">Payment & verification guides</h1>
     <p class="muted" style="max-width:740px;margin:0 0 18px">
@@ -28,7 +27,7 @@ const guides = [
 
   <section class="container" style="padding:8px 0 28px">
     <div class="grid cards" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-      {guides.map((g) => (
+      {guides.map(g => (
         <article class="card" style="padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)">
           <h3 style="margin:0 0 6px;font-size:18px"><a href={g.url}>{g.title}</a></h3>
           <p style="margin:0;color:#b7c4e9">{g.desc}</p>
@@ -36,4 +35,5 @@ const guides = [
       ))}
     </div>
   </section>
+
 </Base>
